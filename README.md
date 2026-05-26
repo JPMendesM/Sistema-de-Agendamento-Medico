@@ -1,5 +1,3 @@
-selectMedico.innerHTML += `<option value="${medico.nome}"> ${medi# Sistema de Agendamento Médico
-
 Sistema web completo de agendamento de consultas médicas desenvolvido com Node.js, Express e JavaScript, aplicando conceitos fundamentais de Sistemas Operacionais.
 
 ---
