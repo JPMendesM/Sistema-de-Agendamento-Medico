@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1779820078250,
+    "paciente": "João Pedro",
+    "medico": "Dra.Eliane",
+    "data": "2026-05-26",
+    "horario": "11:30",
+    "status": "AGENDADA",
+    "criadoEm": "2026-05-26T18:27:58.250Z"
+  }
+]

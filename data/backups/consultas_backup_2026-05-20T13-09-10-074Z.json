@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1779282550073,
+    "paciente": "João Pedro",
+    "medico": "Dr. Carlos",
+    "data": "2026-05-20",
+    "horario": "14:00",
+    "status": "AGENDADA",
+    "criadoEm": "2026-05-20T13:09:10.073Z"
+  }
+]

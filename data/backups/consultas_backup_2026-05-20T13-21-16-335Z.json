@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1779283101749,
+    "paciente": "Maria Silva",
+    "medico": "Dr. Carlos",
+    "data": "2026-05-21",
+    "horario": "09:00",
+    "status": "AGENDADA",
+    "criadoEm": "2026-05-20T13:18:21.749Z"
+  },
+  {
+    "id": 1779283276335,
+    "paciente": "Maria Silva",
+    "medico": "Dr. Carlos",
+    "data": "2026-05-21",
+    "horario": "10:00",
+    "status": "AGENDADA",
+    "criadoEm": "2026-05-20T13:21:16.335Z"
+  }
+]

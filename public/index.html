@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Agendamento Médico</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Sistema de Agendamento Médico</h1>
+        <p>CRUD com conceitos de Sistemas Operacionais</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="dashboard">
+        <div class="dash-card">
+          <span>Pacientes</span>
+          <strong id="dashPacientes">0</strong>
+        </div>
+
+        <div class="dash-card">
+          <span>Médicos</span>
+          <strong id="dashMedicos">0</strong>
+        </div>
+
+        <div class="dash-card">
+          <span>Consultas</span>
+          <strong id="dashConsultas">0</strong>
+        </div>
+
+        <div class="dash-card">
+          <span>Agendadas</span>
+          <strong id="dashAgendadas">0</strong>
+        </div>
+
+        <div class="dash-card">
+          <span>Canceladas</span>
+          <strong id="dashCanceladas">0</strong>
+        </div>
+      </section>
+
+      <section class="card system-card">
+        <h2>Informações do Sistema Operacional</h2>
+
+        <div class="system-grid">
+          <p><strong>SO:</strong> <span id="dashSO">-</span></p>
+          <p>
+            <strong>Arquitetura:</strong> <span id="dashArquitetura">-</span>
+          </p>
+          <p>
+            <strong>Memória livre:</strong> <span id="dashMemoriaLivre">-</span>
+          </p>
+          <p>
+            <strong>Memória total:</strong> <span id="dashMemoriaTotal">-</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Cadastrar Paciente</h2>
+
+          <input type="text" id="nomePaciente" placeholder="Nome do paciente" />
+
+          <button onclick="cadastrarPaciente()">Cadastrar Paciente</button>
+        </div>
+
+        <div class="card">
+          <h2>Cadastrar Médico</h2>
+
+          <input type="text" id="nomeMedico" placeholder="Nome do médico" />
+          <input
+            type="text"
+            id="especialidadeMedico"
+            placeholder="Especialidade"
+          />
+
+          <button onclick="cadastrarMedico()">Cadastrar Médico</button>
+        </div>
+
+        <div class="card">
+          <h2>Agendar Consulta</h2>
+
+          <select id="consultaPaciente"></select>
+          <select id="consultaMedico"></select>
+          <input type="date" id="consultaData" />
+          <input type="time" id="consultaHorario" />
+
+          <button onclick="agendarConsulta()">Agendar Consulta</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Pacientes</h2>
+        <ul id="listaPacientes" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Médicos</h2>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Especialidade</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+
+            <tbody id="listaMedicos"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Consultas Agendadas</h2>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Paciente</th>
+                <th>Médico</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+
+            <tbody id="listaConsultas"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
