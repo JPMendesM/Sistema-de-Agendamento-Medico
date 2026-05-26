@@ -19,22 +19,6 @@ function listarConsultas() {
   }
 
   const consultas = lerConsultas();
-  const pacientes = lerPacientes();
-  const medicos = lerMedicos();
-
-  const pacienteExiste = pacientes.some(
-    (paciente) => paciente.nome === dados.paciente,
-  );
-
-  const medicoExiste = medicos.some((medico) => medico.nome === dados.medico);
-
-  if (!pacienteExiste) {
-    throw new Error("Paciente não cadastrado no sistema.");
-  }
-
-  if (!medicoExiste) {
-    throw new Error("Médico não cadastrado no sistema.");
-  }
 
   cache.salvar("consultas", consultas);
 
