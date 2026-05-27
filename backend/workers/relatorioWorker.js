@@ -13,12 +13,42 @@ if (!fs.existsSync(pastaRelatorios)) {
 
 const dataAtual = new Date().toISOString().replace(/[:.]/g, "-");
 
-function buscarPaciente(id) {
-  return pacientes.find((p) => String(p.id) === String(id));
+function obterPaciente(consulta) {
+  const idPaciente =
+    consulta.pacienteId ||
+    consulta.idPaciente ||
+    consulta.paciente_id ||
+    consulta.paciente;
+
+  const pacienteEncontrado = pacientes.find(
+    (p) => String(p.id) === String(idPaciente),
+  );
+
+  if (pacienteEncontrado) {
+    return pacienteEncontrado.nome;
+  }
+
+  return (
+    consulta.nomePaciente || consulta.paciente || "Paciente não encontrado"
+  );
 }
 
-function buscarMedico(id) {
-  return medicos.find((m) => String(m.id) === String(id));
+function obterMedico(consulta) {
+  const idMedico =
+    consulta.medicoId ||
+    consulta.idMedico ||
+    consulta.medico_id ||
+    consulta.medico;
+
+  const medicoEncontrado = medicos.find(
+    (m) => String(m.id) === String(idMedico),
+  );
+
+  if (medicoEncontrado) {
+    return medicoEncontrado.nome;
+  }
+
+  return consulta.nomeMedico || consulta.medico || "Médico não encontrado";
 }
 
 function gerarCSV() {
@@ -28,12 +58,12 @@ function gerarCSV() {
   let conteudo = "ID,Paciente,Medico,Data,Horario,Status\n";
 
   consultas.forEach((consulta) => {
-    const paciente = buscarPaciente(consulta.pacienteId);
-    const medico = buscarMedico(consulta.medicoId);
+    const paciente = obterPaciente(consulta);
+    const medico = obterMedico(consulta);
 
     conteudo += `${consulta.id},`;
-    conteudo += `${paciente ? paciente.nome : "Paciente não encontrado"},`;
-    conteudo += `${medico ? medico.nome : "Médico não encontrado"},`;
+    conteudo += `${paciente},`;
+    conteudo += `${medico},`;
     conteudo += `${consulta.data || ""},`;
     conteudo += `${consulta.horario || ""},`;
     conteudo += `${consulta.status || "Agendada"}\n`;
@@ -43,7 +73,7 @@ function gerarCSV() {
 
   return {
     nomeArquivo,
-    caminhoArquivo
+    caminhoArquivo,
   };
 }
 
@@ -63,13 +93,13 @@ function gerarPDF() {
   doc.moveDown();
 
   consultas.forEach((consulta, index) => {
-    const paciente = buscarPaciente(consulta.pacienteId);
-    const medico = buscarMedico(consulta.medicoId);
+    const paciente = obterPaciente(consulta);
+    const medico = obterMedico(consulta);
 
     doc.fontSize(13).text(`Consulta ${index + 1}`, { underline: true });
     doc.fontSize(11).text(`ID: ${consulta.id}`);
-    doc.text(`Paciente: ${paciente ? paciente.nome : "Paciente não encontrado"}`);
-    doc.text(`Médico: ${medico ? medico.nome : "Médico não encontrado"}`);
+    doc.text(`Paciente: ${paciente}`);
+    doc.text(`Médico: ${medico}`);
     doc.text(`Data: ${consulta.data || ""}`);
     doc.text(`Horário: ${consulta.horario || ""}`);
     doc.text(`Status: ${consulta.status || "Agendada"}`);
@@ -82,7 +112,7 @@ function gerarPDF() {
     stream.on("finish", () => {
       resolve({
         nomeArquivo,
-        caminhoArquivo
+        caminhoArquivo,
       });
     });
 
@@ -102,12 +132,12 @@ async function executar() {
 
     parentPort.postMessage({
       sucesso: true,
-      ...resultado
+      ...resultado,
     });
   } catch (erro) {
     parentPort.postMessage({
       sucesso: false,
-      erro: erro.message
+      erro: erro.message,
     });
   }
 }

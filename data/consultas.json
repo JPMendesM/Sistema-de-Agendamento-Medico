@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": 1779886054846,
+    "paciente": "Gerhard Saboia",
+    "medico": "Dr. Mendes",
+    "data": "2026-05-27",
+    "horario": "10:00",
+    "status": "AGENDADA",
+    "criadoEm": "2026-05-27T12:47:34.846Z"
+  }
+]
