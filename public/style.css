@@ -222,3 +222,28 @@ th, td {
         width: 94%;
     }
 }
+
+.relatorios-container {
+  margin-top: 30px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.btn-relatorio {
+  padding: 12px 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-relatorio:hover {
+  background-color: #1d4ed8;
+}

@@ -423,3 +423,24 @@ async function carregarDashboard() {
 }
 
 atualizarTudo();
+
+async function gerarRelatorio(tipo) {
+  try {
+    const resposta = await fetch(`/api/relatorios/${tipo}`);
+
+    const dados = await resposta.json();
+
+    if (dados.erro) {
+      alert(dados.erro);
+      return;
+    }
+
+    alert("Relatório gerado com sucesso!");
+
+    window.open(dados.download, "_blank");
+  } catch (erro) {
+    console.error(erro);
+
+    alert("Erro ao gerar relatório.");
+  }
+}
