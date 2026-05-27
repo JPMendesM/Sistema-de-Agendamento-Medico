@@ -4,3 +4,16 @@ data/logs/
 data/relatorios/
 .DS_Store
 Thumbs.db
+
+data/pacientes.json
+data/medicos.json
+data/consultas.json
+
+data/logs/*
+!data/logs/.gitkeep
+
+data/backups/*
+!data/backups/.gitkeep
+
+data/relatorios/*
+!data/relatorios/.gitkeep
