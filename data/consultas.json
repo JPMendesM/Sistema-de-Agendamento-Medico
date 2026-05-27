@@ -1,3 +1,21 @@
 [
-
+  {
+    "id": 1779883626219,
+    "paciente": "Gerhard Saboia",
+    "medico": "Dr. Mendes",
+    "data": "2026-05-27",
+    "horario": "11:30",
+    "status": "AGENDADA",
+    "criadoEm": "2026-05-27T12:07:06.219Z"
+  },
+  {
+    "id": 1779883661007,
+    "paciente": "Ciclano da Silva",
+    "medico": "Dr. Fulano",
+    "data": "2026-05-29",
+    "horario": "12:00",
+    "status": "CANCELADA",
+    "criadoEm": "2026-05-27T12:07:41.007Z",
+    "canceladoEm": "2026-05-27T12:07:46.324Z"
+  }
 ]
