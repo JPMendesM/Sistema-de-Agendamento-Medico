@@ -4,46 +4,84 @@ Sistema web completo de agendamento de consultas médicas desenvolvido com Node.
 
 ---
 
-## Integrantes
+# 📋 Sobre o Projeto
 
-- João Pedro
+O projeto foi desenvolvido com o objetivo de simular um ambiente real de agendamento médico, permitindo o gerenciamento completo de:
 
-## Tecnologias Utilizadas
+- Pacientes
+- Médicos
+- Consultas
+- Relatórios
+- Logs
+- Backups automáticos
 
-- Node.js
-- Express
-- HTML5
-- CSS3
-- JavaScript
-- JSON para persistência de dados
+Além das funcionalidades CRUD tradicionais, o sistema também implementa conceitos importantes de Sistemas Operacionais para garantir integridade, desempenho e controle de concorrência.
 
 ---
 
-## Funcionalidades
+# 👨‍💻 Integrantes
 
-### Pacientes
+- João Pedro
+
+---
+
+# 🚀 Tecnologias Utilizadas
+
+## Backend
+
+- Node.js
+- Express.js
+
+## Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+
+## Persistência de Dados
+
+- JSON
+
+## Recursos do Sistema Operacional
+
+- Worker Threads
+- File System (fs)
+- path
+- os
+
+---
+
+# 📌 Funcionalidades
+
+## 👤 Pacientes
 
 - Cadastrar paciente
 - Listar pacientes
 - Editar paciente
 - Remover paciente
 
-### Médicos
+---
+
+## 👨‍⚕️ Médicos
 
 - Cadastrar médico
 - Listar médicos
 - Editar médico
 - Remover médico
 
-### Consultas
+---
+
+## 📅 Consultas
 
 - Agendar consulta
 - Editar consulta
 - Cancelar consulta
 - Verificação de conflito de horário
-- Apenas pacientes e médicos cadastrados podem ser utilizados
+- Validação de pacientes e médicos cadastrados
 
-### Dashboard
+---
+
+## 📊 Dashboard
 
 - Quantidade de pacientes
 - Quantidade de médicos
@@ -55,39 +93,66 @@ Sistema web completo de agendamento de consultas médicas desenvolvido com Node.
 
 ---
 
-## Conceitos de Sistemas Operacionais Aplicados
+# 🧠 Conceitos de Sistemas Operacionais Aplicados
 
-### Concorrência
+## 🔒 Concorrência
 
 O sistema utiliza mecanismos de lock para evitar conflitos durante agendamentos simultâneos.
 
-### Threads
+### Exemplo:
 
-Worker Threads são utilizadas para geração de relatórios CSV em segundo plano sem bloquear o servidor principal.
-
-### Sistema de Arquivos
-
-Manipulação de arquivos JSON para persistência de dados, logs e backups automáticos.
-
-### Gerência de Memória
-
-Uso de cache em memória para otimização das leituras de consultas.
-
-### Entrada e Saída (I/O)
-
-Leitura e escrita de arquivos utilizando o módulo `fs` do Node.js.
-
-### Chamadas de Sistema
-
-Uso dos módulos `os`, `path` e `fs` para interação com o sistema operacional.
+Evita que duas consultas sejam marcadas para o mesmo médico no mesmo horário.
 
 ---
 
-## Estrutura do Projeto
+## 🧵 Threads
 
-```txt
+Worker Threads são utilizadas para geração de relatórios CSV em segundo plano sem bloquear o servidor principal.
+
+---
+
+## 💾 Sistema de Arquivos
+
+Manipulação de arquivos JSON para persistência de dados, logs e backups automáticos.
+
+---
+
+## 🧠 Gerência de Memória
+
+Uso de cache em memória para otimização das leituras de consultas.
+
+---
+
+## 🔄 Entrada e Saída (I/O)
+
+Leitura e escrita de arquivos utilizando o módulo `fs` do Node.js.
+
+---
+
+## ⚙️ Chamadas de Sistema
+
+Uso dos módulos:
+
+- `fs`
+- `os`
+- `path`
+
+para interação com o sistema operacional.
+
+---
+
+# 📂 Estrutura do Projeto
+
+```bash
 sistema-agendamento/
 ├── backend/
+│   ├── server.js
+│   ├── routes/
+│   ├── controllers/
+│   ├── services/
+│   ├── workers/
+│   └── utils/
+│
 ├── data/
 │   ├── backups/
 │   ├── logs/
@@ -95,87 +160,154 @@ sistema-agendamento/
 │   ├── pacientes.json
 │   ├── medicos.json
 │   └── consultas.json
+│
 ├── public/
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
+│
 ├── package.json
+└── README.md
 ```
 
 ---
 
-## Como Executar
+# ▶️ Como Executar
 
-### Instalar dependências
+## 1️⃣ Clonar o repositório
+
+```bash
+git clone https://github.com/seu-repositorio/sistema-agendamento.git
+```
+
+---
+
+## 2️⃣ Entrar na pasta do projeto
+
+```bash
+cd sistema-agendamento
+```
+
+---
+
+## 3️⃣ Instalar as dependências
 
 ```bash
 npm install
 ```
 
-### Iniciar servidor
+---
+
+## 4️⃣ Iniciar o servidor
 
 ```bash
 npm start
 ```
 
-### Acessar sistema
+---
 
-```txt
+## 5️⃣ Acessar o sistema
+
+```bash
 http://localhost:3000
 ```
 
 ---
 
-## Requisitos
+# 📋 Requisitos
 
 - Node.js 18+
-- Navegador Google Chrome ou Microsoft Edge
+- Google Chrome
+- Microsoft Edge
 
 ---
 
-## Funcionalidades de Segurança e Integridade
+# 🔐 Funcionalidades de Segurança e Integridade
 
 - Controle de conflitos de consultas
 - Verificação de pacientes e médicos cadastrados
-- Logs de operações
+- Logs automáticos
 - Backups automáticos
 - Controle concorrente de agendamentos
 
 ---
 
-## Relatórios
+# 📝 Logs
 
-O sistema gera automaticamente relatórios CSV das consultas utilizando processamento em Worker Threads.
+O sistema registra automaticamente:
 
----
-
-## Logs
-
-O sistema registra:
-
-- operações de cadastro
-- exclusões
-- atualizações
-- conflitos
-- erros
-- geração de relatórios
+- Operações de cadastro
+- Atualizações
+- Exclusões
+- Conflitos
+- Erros
+- Geração de relatórios
+- Execução de backups
 
 ---
 
-## Backups
+# 💾 Backups
 
 Backups automáticos dos arquivos JSON são gerados após alterações nos dados do sistema.
 
 ---
 
-## Interface
+# 📈 Relatórios
 
-O sistema possui:
+O sistema gera automaticamente relatórios CSV das consultas utilizando Worker Threads.
 
-- dashboard em tempo real
-- interface responsiva
-- gerenciamento completo via navegador
-- atualização dinâmica dos dados
+## Benefícios
+
+- Processamento assíncrono
+- Não bloqueia o servidor principal
+- Melhor desempenho
 
 ---
 
-## Considerações Finais
+# 🎨 Interface
 
-O projeto demonstra de forma prática a aplicação de conceitos de Sistemas Operacionais em um sistema web completo, integrando concorrência, threads, gerenciamento de memória, sistema de arquivos e interação com o sistema operacional.
+O sistema possui:
+
+- Dashboard em tempo real
+- Interface responsiva
+- Atualização dinâmica dos dados
+- Gerenciamento completo via navegador
+
+---
+
+# 🖥️ Monitoramento do Sistema
+
+O dashboard apresenta informações relacionadas ao sistema operacional:
+
+- Uso de memória RAM
+- Informações do sistema operacional
+- Estatísticas do servidor
+
+---
+
+# 📚 Objetivo Acadêmico
+
+O projeto foi desenvolvido com foco acadêmico para demonstrar a aplicação prática de conceitos de Sistemas Operacionais em um sistema web completo.
+
+---
+
+# ✅ Considerações Finais
+
+O Sistema de Agendamento Médico demonstra na prática a utilização de:
+
+- Concorrência
+- Threads
+- Gerência de memória
+- Sistema de arquivos
+- Entrada e saída
+- Processamento assíncrono
+- Persistência de dados
+- Interação com o sistema operacional
+
+Tudo isso integrado em uma aplicação web funcional e organizada.
+
+---
+
+# 📄 Licença
+
+Projeto desenvolvido para fins acadêmicos.
